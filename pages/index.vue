@@ -25,23 +25,18 @@ export default {
       sortOrder: 'asc',
     }
   },
-  async asyncData({ $axios }) {
-    try {
-      const response = await $axios.$get('comments');
-      return { comments: response };
-    } catch (error) {
-      console.error('Ошибка при получении данных:', error);
-      return { comments: [] };
-    }
+
+  async created() {
+    await this.fetchComments(); // вызываем метод при создании компонента
   },
+
   methods: {
     goToComment(commentId) {
       this.$router.push(`/comments/${commentId}`);
     },
     async fetchComments() {
       try {
-        const response = await this.$axios.$get(`comments?_sort=id&_order=${this.sortOrder}`);
-        this.comments = response;
+        this.comments = await this.$axios.$get(`comments?_sort=id&_order=${this.sortOrder}`);
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
         this.comments = [];
