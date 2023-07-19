@@ -3,7 +3,7 @@
     <h1>Тестовое задание</h1>
 
     <label for="sortSelect">Сортировать по:</label>
-    <select id="sortSelect" v-model="sortOrder" @change="onSortOrderChange">
+    <select id="sortSelect" v-model="store.sortOrder" @change="onSortOrderChange">
       <option value="asc">По возрастанию</option>
       <option value="desc">По убыванию</option>
     </select>
@@ -14,20 +14,24 @@
       </li>
     </ul>
 
-    <button @click="prevPage" :disabled="currentPage === 1">Предыдущая</button>
+    <button @click="prevPage" :disabled="store.currentPage === 1">Предыдущая</button>
     <button @click="nextPage" :disabled="comments.length < 10">Следующая</button>
-
   </div>
 </template>
 
 <script>
+import store from '@/store/index.js';
+
 export default {
   name: 'IndexPage',
+  computed: {
+    store() {
+      return store
+    }
+  },
   data() {
     return {
       comments: [],
-      sortOrder: 'asc',
-      currentPage: 1,
       perPage: 10,
     };
   },
@@ -37,14 +41,13 @@ export default {
   },
 
   methods: {
-
     goToComment(commentId) {
       this.$router.push(`/comments/${commentId}`);
     },
 
     async fetchComments() {
       try {
-        this.comments = await this.$axios.$get(`comments?_sort=id&_order=${this.sortOrder}&_page=${this.currentPage}&_limit=${this.perPage}`);
+        this.comments = await this.$axios.$get(`comments?_sort=id&_order=${this.store.sortOrder}&_page=${this.store.currentPage}&_limit=${this.perPage}`);
       } catch (error) {
         console.error('Ошибка при получении данных:', error);
         this.comments = [];
@@ -52,19 +55,19 @@ export default {
     },
 
     async prevPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
+      if (this.store.currentPage > 1) {
+        this.store.currentPage--;
         await this.fetchComments();
       }
     },
 
     async nextPage() {
-      this.currentPage++;
+      this.store.currentPage++;
       await this.fetchComments();
     },
 
     onSortOrderChange() {
-      this.currentPage = 1; // сбросить текущую страницу на 1 при изменении фильтра
+      this.store.currentPage = 1; // сбросить текущую страницу на 1 при изменении фильтра
       this.fetchComments();
     },
   },
