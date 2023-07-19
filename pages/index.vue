@@ -2,7 +2,7 @@
   <div>
     <h1>Тестовое задание</h1>
     <ul>
-      <li v-for="comment in comments" :key="comment.id">
+      <li v-for="comment in comments" :key="comment.id" @click="goToComment(comment.id)">
         <p>{{ comment.name }}</p>
       </li>
     </ul>
@@ -27,6 +27,9 @@ export default {
     }
   },
   methods: {
+    goToComment(commentId) {
+      this.$router.push(`/comments/${commentId}`);
+    },
   }
 }
 </script>
