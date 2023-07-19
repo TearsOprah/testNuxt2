@@ -17,12 +17,13 @@ export default {
       comments: [],
     }
   },
-  async fetch() {
+  async asyncData({ $axios }) {
     try {
-      this.comments = await this.$axios.$get('comments');
+      const response = await $axios.$get('comments');
+      return { comments: response };
     } catch (error) {
       console.error('Ошибка при получении данных:', error);
-      this.comments = [];
+      return { comments: [] };
     }
   },
   methods: {

@@ -2,7 +2,7 @@
   <div>
     <div v-if="!comment">
       <p>Такого комментария нет</p>
-      <router-link to="/">На главную</router-link>
+      <a href="/">На главную</a>
     </div>
 
     <h1 v-if="comment">Комментарий {{ comment.id }}</h1>
@@ -22,6 +22,8 @@ export default {
     } catch (error) {
       console.error('Ошибка при получении комментария:', error);
       return { comment: null };
+    } finally {
+      console.log('закончил')
     }
   },
 };
