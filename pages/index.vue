@@ -25,5 +25,8 @@ export default {
       this.comments = [];
     }
   },
+  methods: {
+
+  }
 }
 </script>
