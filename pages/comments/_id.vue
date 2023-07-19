@@ -2,7 +2,7 @@
   <div>
     <div v-if="!comment">
       <p>Такого комментария нет</p>
-      <a href="/">На главную</a>
+      <router-link to="/">На главную</router-link>
     </div>
 
     <h1 v-if="comment">Комментарий {{ comment.id }}</h1>
