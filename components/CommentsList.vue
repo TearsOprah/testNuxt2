@@ -20,11 +20,7 @@
 </template>
 
 <script>
-import Comment from "@/components/Comment.vue";
 export default {
-  components: {
-    Comment,
-  },
   props: {
     comments: {
       type: Array,
@@ -43,13 +39,5 @@ export default {
 </script>
 
 <style>
-
-.comments-list {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 8px;
-  list-style-type: none;
-}
 
 </style>

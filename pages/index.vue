@@ -16,13 +16,11 @@
 import store from '@/store/index.js';
 import Pagination from '../components/Pagination.vue';
 import CommentsList from "@/components/CommentsList.vue";
-import SortSelect from "@/components/SortSelect.vue";
 export default {
   name: 'IndexPage',
   components: {
     Pagination,
     CommentsList,
-    SortSelect,
   },
   computed: {
     store() {
