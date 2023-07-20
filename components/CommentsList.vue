@@ -3,7 +3,11 @@
   <table class="comments-table">
     <thead>
     <tr>
-      <th @click="sortById">ID</th>
+      <th @click="sortById">
+        ID
+        <span v-if="store.sortOrder === 'asc'">▲</span>
+        <span v-else>▼</span>
+      </th>
       <th>Name</th>
       <th>Email</th>
     </tr>
@@ -20,7 +24,14 @@
 </template>
 
 <script>
+import store from "@/store";
+
 export default {
+  computed: {
+    store() {
+      return store
+    }
+  },
   props: {
     comments: {
       type: Array,
