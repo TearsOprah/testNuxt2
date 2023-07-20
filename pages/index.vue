@@ -11,11 +11,7 @@
     </select>
 
     <!-- Список комментариев -->
-    <ul class="comments__list">
-      <li class="comments__list-item" v-for="comment in comments" :key="comment.id" @click="goToComment(comment.id)">
-        <p>{{ comment.name }}</p>
-      </li>
-    </ul>
+    <CommentsList :comments="comments" />
 
     <!-- Навигация по станицам-->
     <Pagination :currentPage="store.currentPage" :hasMoreComments="comments.length >= 10" :comments="comments"
@@ -26,10 +22,12 @@
 <script>
 import store from '@/store/index.js';
 import Pagination from '../components/Pagination.vue';
+import CommentsList from "@/components/CommentsList.vue";
 export default {
   name: 'IndexPage',
   components: {
     Pagination,
+    CommentsList,
   },
   computed: {
     store() {
@@ -48,10 +46,6 @@ export default {
   },
 
   methods: {
-    // Переход к деталям комментария по его ID
-    goToComment(commentId) {
-      this.$router.push(`/comments/${commentId}`);
-    },
 
     // Загрузка комментариев с сервера
     async fetchComments() {
