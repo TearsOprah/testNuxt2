@@ -1,9 +1,20 @@
 <template>
-  <ul class="comments__list">
-    <li class="comments__list-item" v-for="comment in comments" :key="comment.id" @click="goToComment(comment.id)">
-      <p>{{ comment.name }}</p>
-    </li>
-  </ul>
+  <table class="comments-table">
+    <thead>
+    <tr>
+      <th @click="sortById">ID</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="comment in comments" :key="comment.id" @click="goToComment(comment.id)">
+      <td>{{ comment.id }}</td>
+      <td>{{ comment.name }}</td>
+      <td>{{ comment.email }}</td>
+    </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -18,6 +29,9 @@ export default {
     goToComment(commentId) {
       this.$router.push(`/comments/${commentId}`);
     },
+    sortById() {
+      this.$emit('sort-by-id')
+    }
   },
 };
 </script>
