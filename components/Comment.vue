@@ -19,3 +19,13 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.comment {
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+</style>

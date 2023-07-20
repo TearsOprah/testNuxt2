@@ -23,3 +23,15 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+  list-style-type: none;
+}
+
+</style>
