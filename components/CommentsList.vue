@@ -16,7 +16,7 @@
     <tr class="comment-row" v-for="comment in comments" :key="comment.id" @click="goToComment(comment.id)">
       <td class="comment-cell">{{ comment.id }}</td>
       <td class="comment-cell">{{ comment.name }}</td>
-      <td class="comment-cell">{{ comment.email }}</td>
+      <td class="comment-cell email-cell">{{ comment.email }}</td>
     </tr>
     </tbody>
   </table>
@@ -63,6 +63,9 @@ export default {
 .comment-cell {
   padding: 10px;
   border: 1px solid #C5C6EF;
+}
+
+.email-cell {
   word-break: break-all;
 }
 
