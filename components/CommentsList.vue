@@ -1,13 +1,15 @@
 <template>
-  <ul class="comments__list">
-    <li class="comments__list-item" v-for="comment in comments" :key="comment.id" @click="goToComment(comment.id)">
-      <p>{{ comment.name }}</p>
-    </li>
+  <ul class="comments-list">
+    <Comment v-for="comment in comments" :key="comment.id" :comment="comment" />
   </ul>
 </template>
 
 <script>
+import Comment from "@/components/Comment.vue";
 export default {
+  components: {
+    Comment,
+  },
   props: {
     comments: {
       type: Array,
