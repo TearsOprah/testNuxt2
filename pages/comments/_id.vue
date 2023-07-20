@@ -1,12 +1,13 @@
 <template>
-  <div>
-    <p v-if="!comment">Такого комментария нет</p>
+  <div class="comment">
+    <div class="comment__info">
+      <p v-if="!comment">Такого комментария нет</p>
 
-    <h1 v-if="comment">Комментарий {{ comment.id }}</h1>
-    <p v-if="comment">{{ comment.name }}</p>
-    <p v-if="comment">{{ comment.email }}</p>
-    <p v-if="comment">{{ comment.body }}</p>
-
+      <p v-if="comment">Комментарий {{ comment.id }}</p>
+      <p v-if="comment">Name: {{ comment.name }}</p>
+      <p v-if="comment">Email: {{ comment.email }}</p>
+      <p v-if="comment">Body: {{ comment.body }}</p>
+    </div>
     <button class="primary-button" @click="goToHome">На главную</button>
   </div>
 </template>
@@ -21,8 +22,6 @@ export default {
     } catch (error) {
       console.error('Ошибка при получении комментария:', error);
       return { comment: null };
-    } finally {
-      console.log('закончил')
     }
   },
   methods: {
@@ -32,3 +31,23 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: start;
+}
+
+.comment__info {
+  background: #C5C6EF;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+</style>
