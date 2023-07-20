@@ -53,17 +53,18 @@ export default {
 .comments-table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #ccc;
+  //border: 1px solid #ccc;
+  margin: 20px 0;
 }
 
 .column-title {
   padding: 10px;
-  border: 1px solid #ccc;
+  //border: 1px solid #ccc;
 }
 
 .comment-cell {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #C5C6EF;
 }
 
 .sortable-column {
@@ -74,8 +75,14 @@ export default {
   margin-left: 5px;
 }
 
-.comment-row:hover {
-  background-color: #f5f5f5;
+.comment-row {
+  transition: all ease .5s;
 }
+
+.comment-row:hover {
+  background-color: #C5C6EF;
+  cursor: pointer;
+}
+
 </style>
 

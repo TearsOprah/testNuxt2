@@ -7,7 +7,7 @@
     <p v-if="comment">{{ comment.email }}</p>
     <p v-if="comment">{{ comment.body }}</p>
 
-    <router-link to="/">На главную</router-link>
+    <button class="primary-button" @click="goToHome">На главную</button>
   </div>
 </template>
 
@@ -24,6 +24,11 @@ export default {
     } finally {
       console.log('закончил')
     }
+  },
+  methods: {
+    goToHome() {
+      this.$router.push('/');
+    },
   },
 };
 </script>

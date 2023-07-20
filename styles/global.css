@@ -5,9 +5,9 @@
 }
 
 body {
-  background-color: #F5F6FA;
+  background-color: #FCFCFC;
   max-width: 1100px;
   margin: 0 auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 50px 30px;
+  font-family: Inter, sans-serif;
 }

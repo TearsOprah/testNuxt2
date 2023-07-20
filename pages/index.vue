@@ -1,7 +1,7 @@
 <template>
   <div class="comments">
     <!-- Заголовок страницы -->
-    <h1 class="comments__title">Тестовое задание</h1>
+    <h1 class="comments__title">Тестовое задание: Михаил Головешкин</h1>
 
     <!-- Таблица комментариев -->
     <CommentsList :comments="comments" @sort-by-id="sortById" />

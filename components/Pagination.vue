@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button class="comments__button" @click="prevPage" :disabled="currentPage === 1">Предыдущая</button>
-    <button class="comments__button" @click="nextPage" :disabled="comments.length < 10">Следующая</button>
+    <button class="primary-button" @click="prevPage" :disabled="currentPage === 1">Предыдущая</button>
+    <button class="primary-button" @click="nextPage" :disabled="comments.length < 10">Следующая</button>
   </div>
 </template>
 
@@ -31,3 +31,25 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.primary-button {
+  background: #5357B6;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  transition: all .5s ease;
+}
+
+.primary-button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.primary-button:disabled {
+  opacity: 0.5;
+}
+
+</style>
