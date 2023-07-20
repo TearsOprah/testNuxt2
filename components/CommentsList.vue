@@ -53,18 +53,17 @@ export default {
 .comments-table {
   width: 100%;
   border-collapse: collapse;
-  //border: 1px solid #ccc;
   margin: 20px 0;
 }
 
 .column-title {
   padding: 10px;
-  //border: 1px solid #ccc;
 }
 
 .comment-cell {
   padding: 10px;
   border: 1px solid #C5C6EF;
+  word-break: break-all;
 }
 
 .sortable-column {
