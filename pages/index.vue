@@ -3,11 +3,8 @@
     <!-- Заголовок страницы -->
     <h1 class="comments__title">Тестовое задание</h1>
 
-    <!-- Форма выбора сортировки -->
-    <SortSelect v-model="store.sortOrder" @sort-order-change="onSortOrderChange" />
-
-    <!-- Список комментариев -->
-    <CommentsList :comments="comments" />
+    <!-- Таблица комментариев -->
+    <CommentsList :comments="comments" @sort-by-id="sortById" />
 
     <!-- Навигация по станицам-->
     <Pagination :currentPage="store.currentPage" :hasMoreComments="comments.length >= 10" :comments="comments"
@@ -69,8 +66,13 @@ export default {
       await this.fetchComments();
     },
 
-    // Обработка изменения порядка сортировки
-    onSortOrderChange() {
+    // обработка сортировки по клику на заголовок "ID"
+    sortById() {
+      if (this.store.sortOrder === 'asc') {
+        this.store.sortOrder = 'desc';
+      } else {
+        this.store.sortOrder = 'asc';
+      }
       this.store.currentPage = 1; // сбросить текущую страницу на 1 при изменении фильтра
       this.fetchComments();
     },
