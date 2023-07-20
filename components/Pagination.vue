@@ -31,25 +31,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-.primary-button {
-  background: #5357B6;
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  transition: all .5s ease;
-}
-
-.primary-button:hover {
-  cursor: pointer;
-  opacity: .8;
-}
-
-.primary-button:disabled {
-  opacity: 0.5;
-}
-
-</style>
