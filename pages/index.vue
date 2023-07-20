@@ -4,11 +4,7 @@
     <h1 class="comments__title">Тестовое задание</h1>
 
     <!-- Форма выбора сортировки -->
-    <label for="sortSelect">Сортировать по:</label>
-    <select id="sortSelect" v-model="store.sortOrder" @change="onSortOrderChange">
-      <option value="asc">По возрастанию</option>
-      <option value="desc">По убыванию</option>
-    </select>
+    <SortSelect v-model="store.sortOrder" @sort-order-change="onSortOrderChange" />
 
     <!-- Список комментариев -->
     <CommentsList :comments="comments" />
@@ -23,11 +19,13 @@
 import store from '@/store/index.js';
 import Pagination from '../components/Pagination.vue';
 import CommentsList from "@/components/CommentsList.vue";
+import SortSelect from "@/components/SortSelect.vue";
 export default {
   name: 'IndexPage',
   components: {
     Pagination,
     CommentsList,
+    SortSelect,
   },
   computed: {
     store() {
