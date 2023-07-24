@@ -1,4 +1,5 @@
 # testNuxt2
+## [live demo](https://test-nuxt2-beta.vercel.app/)
 
 ## Build Setup
 
@@ -16,6 +17,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
-
-## [live demo](https://test-nuxt2-beta.vercel.app/)
